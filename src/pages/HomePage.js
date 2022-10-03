@@ -1,6 +1,6 @@
 function HomePage() {
   return (
-    <div>
+    <div className="container-xl mx-auto">
       <span>home</span>
     </div>
   );

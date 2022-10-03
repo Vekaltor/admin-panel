@@ -11,16 +11,30 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { useReducer } from "react";
 
 import LoggingContext from "./contexts/LoggingContext";
-import reducer from "./Reduccers/AppReduccer";
+import reducer, { initialState } from "./reduccers/AppReduccer";
+
+const data = {
+  users: [
+    { id: 0, login: "admin", pass: "admin", permission: "admin" },
+    { id: 1, login: "user", pass: "user", permission: "user" },
+  ],
+  list: [
+    { id: 0, content: "First" },
+    { id: 1, content: "Second" },
+  ],
+};
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, { isAdminLogged: false });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <LoggingContext.Provider
       value={{
+        data: data,
+        dataAdmin: state.dataAdmin,
         isAdminLogged: state.isAdminLogged,
         onClickHandler: dispatch,
+        onLoadHandler: dispatch,
       }}
     >
       <Router>

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Login from "../components/Login";
-import AdminPanel from "../components/AdminPanel";
+import AdminPanel from "../admin/AdminPanel";
 import LoggingContext from "../contexts/LoggingContext";
 
 function AdminPage() {
@@ -11,7 +11,9 @@ function AdminPage() {
 
   const componentAfterAuthorized = permission ? <AdminPanel /> : <Login />;
 
-  return <div className="h-100 d-flex">{componentAfterAuthorized}</div>;
+  return (
+    <div className="admin-page overflow-hidden">{componentAfterAuthorized}</div>
+  );
 }
 
 export default AdminPage;

@@ -1,6 +1,6 @@
 function UserPage() {
   return (
-    <div>
+    <div className="container-xl mx-auto">
       <span>Użytkownik</span>
     </div>
   );

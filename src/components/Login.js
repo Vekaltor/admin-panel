@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 
-import { actions } from "../Reduccers/AppReduccer";
+import { actions } from "../reduccers/AppReduccer";
 
 import LoggingContext from "../contexts/LoggingContext";
 import IncorrectData from "./IncorrectData";
@@ -22,21 +22,30 @@ function Login() {
     setPass(target.value);
   }
 
-  function handleClick() {
-    if (data.login === login && data.pass === pass)
-      onClickHandler({ type: actions.loggingAdmin });
-    else {
-      clearData();
-      setIncorrectData(true);
-    }
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
   }
 
   function handleFocus() {
     setIncorrectData(false);
+  }
+
+  function handleClick() {
+    validate();
+  }
+
+  function validate() {
+    if (data.login === login && data.pass === pass) correctValidate();
+    else incorrectValidate();
+  }
+
+  function correctValidate() {
+    onClickHandler({ type: actions.loggingAdmin });
+  }
+
+  function incorrectValidate() {
+    clearData();
+    setIncorrectData(true);
   }
 
   function clearData() {
@@ -50,7 +59,7 @@ function Login() {
     <div className="row m-auto mt-5" style={{ width: 300, height: 400 }}>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="my-4 row">
-          <label className="col-sm-4 col-form-label text-start" for="login">
+          <label className="col-sm-4 col-form-label text-start" htmlFor="login">
             login:
           </label>
           <div className="col-sm">
@@ -65,7 +74,7 @@ function Login() {
           </div>
         </div>
         <div className="mb-5 row">
-          <label className="col-sm-4 col-form-label text-start" for="pass">
+          <label className="col-sm-4 col-form-label text-start" htmlFor="pass">
             password:
           </label>
           <div className="col-sm">

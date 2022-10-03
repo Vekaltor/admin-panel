@@ -1,23 +1,37 @@
 import { NavLink } from "react-router-dom";
 
-const elementsMenu = [
-  { id: 0, path: "/", text: "Start" },
-  { id: 1, path: "/user", text: "Użytkownik" },
-  { id: 2, path: "/admin", text: "Admin" },
-];
+function Navigation({ listMenu, styles, icons }) {
+  const { item, nav, list, navLink, icon, text } = styles;
 
-function Navigation() {
-  const listMenu = elementsMenu.map((elementMenu) => (
-    <li key={elementMenu.id} className="nav-item flex-grow-1">
-      <NavLink className="nav-link px-3" end to={elementMenu.path}>
-        {elementMenu.text}
+  function getCorrectlyIcon(text) {
+    let Icon = icons.find((icon) =>
+      icon.name === text ? icon.IconComponent : null
+    );
+    return Icon.IconComponent;
+  }
+
+  const menu = listMenu.map((elementMenu) => (
+    <li key={elementMenu.id} className={item}>
+      <NavLink className={navLink} end to={elementMenu.path}>
+        <div className=" d-flex justify-content-between align-items-center">
+          {icons ? (
+            <span className={icon} data-icon>
+              <NavLink className={navLink} end to={elementMenu.path}>
+                {getCorrectlyIcon(elementMenu.text)}
+              </NavLink>
+            </span>
+          ) : null}
+          <span className={text} data-text>
+            {elementMenu.text}
+          </span>
+        </div>
       </NavLink>
     </li>
   ));
 
   return (
-    <nav className="navbar navbar-dark bg-dark">
-      <ul className="navbar-nav flex-row">{listMenu}</ul>
+    <nav className={nav}>
+      <ul className={list}>{menu}</ul>
     </nav>
   );
 }

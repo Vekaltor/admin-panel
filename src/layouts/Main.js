@@ -5,12 +5,12 @@ import UserPage from "../pages/UserPage";
 
 function Main() {
   return (
-    <main className="container-xl">
+    <main className="container-fluid px-0">
       <Routes>
         <Route path="/" exact element={<HomePage />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="*" element={<Navigate to="/error" />} />
+        <Route path="/user" exact element={<UserPage />} />
+        <Route path="/admin/*" exact element={<AdminPage />} />
+        {/* <Route path="*" element={<Navigate to="/error" />} /> */}
       </Routes>
     </main>
   );
