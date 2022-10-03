@@ -6,13 +6,25 @@ function Users() {
 
   return (
     <div>
-      <span>Fetched DATA</span>
-      <div>
-        {dataAdmin.users.map((user) => (
-          <div key={user.id} className="my-3">
-            {"login: " + user.login + ", pass: " + user.pass}
-          </div>
-        ))}
+      <h2 className="mt-4">
+        <span>Users</span>
+      </h2>
+
+      <div className="d-flex justify-content-center mt-5">
+        <table className="table-users">
+          <tr>
+            <th>Id</th>
+            <th>Login</th>
+            <th>Password</th>
+          </tr>
+          {dataAdmin.users.map((user, index) => (
+            <tr key={user.id} className="my-3">
+              <td className="me-5">{index + 1}.</td>
+              <td className="me-4">{user.login}</td>
+              <td>{user.pass}</td>
+            </tr>
+          ))}
+        </table>
       </div>
     </div>
   );

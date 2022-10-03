@@ -10,24 +10,9 @@ import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 
 function ContentAdminPanel() {
-  const { onClickHandler } = useContext(LoggingContext);
-
-  let navigate = useNavigate();
-
-  function handleClickLogout() {
-    onClickHandler({ type: actions.logoutAdmin });
-    navigate("/");
-  }
-
   return (
     <div className="row m-0">
       <div className="col-10">
-        <button
-          className="btn btn-primary bg-secondary bg-gradient bg-opacity-25 text-dark border-0"
-          onClick={handleClickLogout}
-        >
-          Logout
-        </button>
         <Routes>
           <Route index element={<Home />} />
           <Route path="/users" element={<Users />} />

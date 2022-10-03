@@ -17,7 +17,9 @@ function Navigation({ listMenu, styles, icons }) {
           {icons ? (
             <span className={icon} data-icon>
               <NavLink className={navLink} end to={elementMenu.path}>
-                {getCorrectlyIcon(elementMenu.text)}
+                <span className="d-flex justify-content-center">
+                  {getCorrectlyIcon(elementMenu.text)}
+                </span>
               </NavLink>
             </span>
           ) : null}

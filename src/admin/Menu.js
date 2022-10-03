@@ -12,9 +12,9 @@ const styles = {
   item: "nav-item text-end w-100",
   nav: "nav navbar-dark bg-primary h-100 pe-3 pt-5",
   list: "navbar-nav flex-column w-100 d-flex",
-  navLink: "nav-link d-inline-block w-100",
-  icon: "h3 ms-4",
-  text: "me-2 h6 my-0 py-3 text-end w-100",
+  navLink: "nav-link",
+  icon: "h3 col-4",
+  text: "me-2 h6 my-0 py-3 text-end col-8",
 };
 
 function Menu() {
