@@ -9,14 +9,16 @@ import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 
+import pathURL from "../PathURL";
+
 function ContentAdminPanel() {
   return (
     <div className="row m-0">
       <div className="col-10">
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path={pathURL + "/users"} element={<Users />} />
+          <Route path={pathURL + "/settings"} element={<Settings />} />
           {/* <Route path="/*" element={<Navigate to="/error" />} /> */}
         </Routes>
       </div>

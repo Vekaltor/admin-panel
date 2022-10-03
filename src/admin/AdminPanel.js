@@ -31,12 +31,7 @@ function AdminPanel() {
     <ContentAdminPanel />
   );
 
-  return (
-    <div className="admin-page-height">
-      {/* <span>Logged on to the admin !</span> */}
-      {componentByAfterAndBeforeLoading}
-    </div>
-  );
+  return <div className="admin-page">{componentByAfterAndBeforeLoading}</div>;
 }
 
 export default AdminPanel;

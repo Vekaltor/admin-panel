@@ -4,6 +4,7 @@ main {
 
 /* ADMIN PAGE */
 .admin-page {
+  position: relative;
   min-height: calc(100vh - 120px - 56px);
 }
 
