@@ -6,6 +6,7 @@ import { adminMenu } from "../data/DataMenu";
 import { FaHome } from "react-icons/fa";
 import { HiUsers } from "react-icons/hi";
 import { IoMdSettings } from "react-icons/io";
+import ButtonMenu from "./ButtonMenu";
 
 const styles = {
   item: "nav-item text-end w-100",
@@ -18,7 +19,6 @@ const styles = {
 
 function Menu() {
   const menuRef = useRef();
-  const buttonMenu = useRef();
 
   const [isActiveButton, setIsActiveButton] = useState(false);
 
@@ -43,11 +43,11 @@ function Menu() {
     idSetTimeout = setTimeout(() => menu.classList.remove("active"), 1000);
   };
 
-  const handleClick = () => {
+  const handleClick = (buttonMenu, e) => {
     let button = buttonMenu.current;
 
-    changeStyles();
     button.classList.toggle("active");
+    changeStyles();
 
     if (isActiveButton) closeMenu();
     setIsActiveButton(!isActiveButton);
@@ -63,12 +63,15 @@ function Menu() {
   };
 
   const changeStyles = () => {
+    let menu = menuRef.current;
     if (!isActiveButton) {
       hideIconMenu();
       showTextMenu();
+      menu.classList.add("active");
     } else {
       showIconMenu();
       hideTextMenu();
+      menu.classList.remove("active");
     }
   };
 
@@ -99,13 +102,7 @@ function Menu() {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
-      <div className="button-menu position-absolute start-0 top-0 mx-4 my-3">
-        <div ref={buttonMenu} onClick={handleClick}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+      <ButtonMenu click={handleClick} />
       <Navigation listMenu={adminMenu} styles={styles} icons={icons} />
     </div>
   );
