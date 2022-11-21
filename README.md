@@ -1,6 +1,6 @@
 # Admin panel
 
-A simple application based on React technology (createContext) allows you to add, delete and change task statuses. The ability to search for tasks by the entered phrase. Group tasks by status and filter them when they are displayed.
+Application created with reducer and createContext. It is used for logging in (validation) to the panel. The administration panel has a simple menu.
 
 ## Technologies:
 <p>Project is created with:</p>
